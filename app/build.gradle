@@ -1,0 +1,79 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'com.google.ar.sceneform.plugin'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.example.kotlinsceneform"
+        minSdkVersion 26
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    // Provides ARCore Session and related resources.
+    implementation 'com.google.ar:core:1.7.0'
+
+    // Provides ArFragment, and other UX resources.
+    implementation 'com.google.ar.sceneform.ux:sceneform-ux:1.7.0'
+
+    // Alternatively, use ArSceneView without the UX dependency.
+    implementation 'com.google.ar.sceneform:core:1.7.0'
+}
+
+
+sceneform.asset('sampledata/3D_Model/bear.fbx',
+        'default',
+        'sampledata/3D_Model/bear.sfa',
+        'src/main/res/raw/bear')
+
+sceneform.asset('sampledata/3D_Model/cat.fbx',
+        'default',
+        'sampledata/3D_Model/cat.sfa',
+        'src/main/res/raw/cat')
+
+sceneform.asset('sampledata/3D_Model/cow.fbx',
+        'default',
+        'sampledata/3D_Model/cow.sfa',
+        'src/main/res/raw/cow')
+
+sceneform.asset('sampledata/3D_Model/dog.fbx',
+        'default',
+        'sampledata/3D_Model/dog.sfa',
+        'src/main/res/raw/dog')
+
+sceneform.asset('sampledata/3D_Model/elephant.fbx',
+        'default',
+        'sampledata/3D_Model/elephant.sfa',
+        'src/main/res/raw/elephant')
+
+sceneform.asset('sampledata/3D_Model/ferret.fbx',
+        'default',
+        'sampledata/3D_Model/ferret.sfa',
+        'src/main/res/raw/ferret')
+
+sceneform.asset('sampledata/3D_Model/hippopotamus.fbx',
+        'default',
+        'sampledata/3D_Model/hippopotamus.sfa',
+        'src/main/res/raw/hippopotamus')
